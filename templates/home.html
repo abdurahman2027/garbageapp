@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="hero-container">
+
+    <div class="upload-window" id="upload-section">
+
+        <h1>AI-Powered Waste Classification</h1>
+
+        <p class="developer-text">
+            Developed by <span class="developer-name">Abdu Rahman</span><br>
+            <span class="developer-role">(Aspiring Data Scientist & Analyst)</span>
+        </p>
+
+        <p class="description">
+            Upload waste images and let AI classify them into:
+            cardboard, glass, metal, paper, plastic, or trash.
+        </p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            
+            <input type="file" 
+                   name="file" 
+                   id="fileInput"
+                   required>
+
+            <p id="upload-status"></p>
+
+            <button type="submit">Predict Waste Type</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("fileInput").addEventListener("change", function() {
+    document.getElementById("upload-status").innerHTML =
+        "✅ Image uploaded successfully. Click Predict.";
+});
+</script>
+
+{% endblock %}

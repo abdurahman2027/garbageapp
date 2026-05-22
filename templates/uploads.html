@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="uploads-container">
+
+    <div class="uploads-card">
+
+        <h1>Previously Uploaded Images</h1>
+
+        <form action="/delete_images" method="POST">
+
+            <!-- Select All Option -->
+            <div class="select-all-section">
+
+                <label>
+                    <input type="checkbox" id="selectAll">
+                    Select All Images
+                </label>
+
+            </div>
+
+            <!-- Gallery -->
+            <div class="gallery">
+
+                {% for img in images %}
+
+                    <div class="gallery-item">
+
+                        <img src="{{ url_for('static', filename='uploads/' + img) }}">
+
+                        <label class="checkbox-label">
+
+                            <input type="checkbox"
+                                   name="delete_images"
+                                   value="{{ img }}">
+
+                            Select
+
+                        </label>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- Delete Button -->
+            <button type="submit" class="delete-btn">
+
+                <i class="fa-solid fa-trash"></i>
+                Delete Selected
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- JavaScript for Select All -->
+<script>
+
+document.getElementById("selectAll")
+.addEventListener("change", function() {
+
+    let checkboxes =
+        document.querySelectorAll(
+            'input[name="delete_images"]'
+        );
+
+    checkboxes.forEach(function(checkbox) {
+
+        checkbox.checked =
+            document.getElementById("selectAll").checked;
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

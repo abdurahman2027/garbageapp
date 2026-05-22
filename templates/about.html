@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="about-container">
+
+    <div class="about-card">
+
+        <h1>About This AI Model</h1>
+
+        <img src="{{ url_for('static', filename='images/ai3d.png') }}" 
+             alt="AI Waste Classification"
+             class="about-image">
+
+        <div class="about-text">
+
+    <p>
+        <i class="fa-solid fa-database"></i>
+        <strong> Dataset:</strong> Garbage Classification Dataset
+    </p>
+
+    <p>
+        <i class="fa-solid fa-layer-group"></i>
+        <strong> Classes:</strong> 
+        Cardboard, Glass, Metal, Paper, Plastic, Trash
+    </p>
+
+    <p>
+        <i class="fa-solid fa-brain"></i>
+        <strong> Model Architecture:</strong> MobileNetV2 Transfer Learning
+    </p>
+
+    <p>
+        <i class="fa-solid fa-chart-line"></i>
+        <strong> Training Accuracy:</strong> 81.80%
+    </p>
+
+    <p>
+        <i class="fa-solid fa-check-circle"></i>
+        <strong> Validation Accuracy:</strong> 81.39%
+    </p>
+
+    <p>
+        <i class="fa-solid fa-cloud"></i>
+        <strong> Deployment:</strong> Flask + Azure Cloud
+    </p>
+
+</div>
+
+    </div>
+
+</div>
+
+{% endblock %}
